@@ -1,0 +1,143 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://exam.mycompany.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="WsImplService" targetNamespace="http://exam.mycompany.com/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://exam.mycompany.com/" elementFormDefault="unqualified" targetNamespace="http://exam.mycompany.com/" version="1.0">
+
+  <xs:element name="MOVIE" type="tns:movie"/>
+
+  <xs:element name="getAllMovies" type="tns:getAllMovies"/>
+
+  <xs:element name="getAllMoviesResponse" type="tns:getAllMoviesResponse"/>
+
+  <xs:element name="getDirecotr" type="tns:getDirecotr"/>
+
+  <xs:element name="getDirecotrResponse" type="tns:getDirecotrResponse"/>
+
+  <xs:element name="getMovie" type="tns:getMovie"/>
+
+  <xs:element name="getMovieResponse" type="tns:getMovieResponse"/>
+
+  <xs:complexType name="getDirecotr">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getDirecotrResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getAllMovies">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getAllMoviesResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getMovie">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getMovieResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:movie"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="movie">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="director" type="xs:string"/>
+      <xs:element minOccurs="0" name="identifier" type="xs:string"/>
+      <xs:element minOccurs="0" name="title" type="xs:string"/>
+      <xs:element minOccurs="0" name="year" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getAllMoviesResponse">
+    <wsdl:part element="tns:getAllMoviesResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMovieResponse">
+    <wsdl:part element="tns:getMovieResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDirecotr">
+    <wsdl:part element="tns:getDirecotr" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDirecotrResponse">
+    <wsdl:part element="tns:getDirecotrResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllMovies">
+    <wsdl:part element="tns:getAllMovies" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMovie">
+    <wsdl:part element="tns:getMovie" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="WsInterface">
+    <wsdl:operation name="getDirecotr">
+      <wsdl:input message="tns:getDirecotr" name="getDirecotr">
+    </wsdl:input>
+      <wsdl:output message="tns:getDirecotrResponse" name="getDirecotrResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllMovies">
+      <wsdl:input message="tns:getAllMovies" name="getAllMovies">
+    </wsdl:input>
+      <wsdl:output message="tns:getAllMoviesResponse" name="getAllMoviesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMovie">
+      <wsdl:input message="tns:getMovie" name="getMovie">
+    </wsdl:input>
+      <wsdl:output message="tns:getMovieResponse" name="getMovieResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WsImplServiceSoapBinding" type="tns:WsInterface">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getDirecotr">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getDirecotr">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getDirecotrResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllMovies">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getAllMovies">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAllMoviesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMovie">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getMovie">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getMovieResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WsImplService">
+    <wsdl:port binding="tns:WsImplServiceSoapBinding" name="WsImplPort">
+      <soap:address location="http://localhost:8080/ws"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
